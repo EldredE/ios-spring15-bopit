@@ -1,3 +1,1 @@
-To make pulls and pushes to a repo inside of the github app, go to the changes tab, then go up to repositories in the tool bar. There should be a push and pull there.
-
-Testing merges.
+https://mac.github.com/help.html This will help get used to the github app when doing pushes, pulls, and syncs.
