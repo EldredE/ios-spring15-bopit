@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,8 +17,140 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1r-Oh-cyg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.87020210600000003" green="0.020513900960000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="sa0-Ca-Sxp">
+                                        <variation key="heightClass=compact" constant="101"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sa0-Ca-Sxp"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="sa0-Ca-Sxp"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="redButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qfa-A9-fx4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb3-95-orG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0048981282390000002" green="0.42123324629999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="blueButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IQ4-3N-2g9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47F-un-kSy">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="20" width="101" height="35"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhy-uT-E83">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yhy-uT-E83" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="3dP-Tr-FuB"/>
+                            <constraint firstItem="Cb3-95-orG" firstAttribute="top" secondItem="t1r-Oh-cyg" secondAttribute="top" id="Ggh-1O-V3f"/>
+                            <constraint firstItem="Cb3-95-orG" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="JFe-CZ-Sbp"/>
+                            <constraint firstItem="Cb3-95-orG" firstAttribute="leading" secondItem="Yhy-uT-E83" secondAttribute="trailing" constant="67" id="N6w-GO-4pB">
+                                <variation key="heightClass=compact" constant="81"/>
+                            </constraint>
+                            <constraint firstItem="t1r-Oh-cyg" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="ToH-aZ-PBW">
+                                <variation key="heightClass=compact" constant="9"/>
+                            </constraint>
+                            <constraint firstItem="Yhy-uT-E83" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="126" id="UII-gd-7aS">
+                                <variation key="heightClass=compact" constant="117"/>
+                            </constraint>
+                            <constraint firstItem="t1r-Oh-cyg" firstAttribute="firstBaseline" secondItem="Cb3-95-orG" secondAttribute="firstBaseline" id="ZAx-GD-QaZ"/>
+                            <constraint firstItem="Cb3-95-orG" firstAttribute="baseline" secondItem="t1r-Oh-cyg" secondAttribute="baseline" id="aYG-ea-5IJ"/>
+                            <constraint firstItem="t1r-Oh-cyg" firstAttribute="bottom" secondItem="Cb3-95-orG" secondAttribute="bottom" id="iAm-1f-mjp"/>
+                            <constraint firstItem="Cb3-95-orG" firstAttribute="centerY" secondItem="Yhy-uT-E83" secondAttribute="centerY" id="q3P-rO-Jhg">
+                                <variation key="heightClass=compact" constant="0.5"/>
+                            </constraint>
+                            <constraint firstItem="t1r-Oh-cyg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wag-Gr-MAd"/>
+                            <constraint firstItem="Yhy-uT-E83" firstAttribute="leading" secondItem="t1r-Oh-cyg" secondAttribute="trailing" constant="77" id="xxA-HJ-mcz">
+                                <variation key="heightClass=compact" constant="84"/>
+                            </constraint>
+                            <constraint firstItem="t1r-Oh-cyg" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="135" id="zmV-NX-rSK">
+                                <variation key="heightClass=compact" constant="153"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="t1r-Oh-cyg"/>
+                                <exclude reference="Cb3-95-orG"/>
+                                <exclude reference="47F-un-kSy"/>
+                                <exclude reference="Yhy-uT-E83"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ToH-aZ-PBW"/>
+                                <exclude reference="ZAx-GD-QaZ"/>
+                                <exclude reference="iAm-1f-mjp"/>
+                                <exclude reference="wag-Gr-MAd"/>
+                                <exclude reference="zmV-NX-rSK"/>
+                                <exclude reference="3dP-Tr-FuB"/>
+                                <exclude reference="UII-gd-7aS"/>
+                                <exclude reference="xxA-HJ-mcz"/>
+                                <exclude reference="Ggh-1O-V3f"/>
+                                <exclude reference="JFe-CZ-Sbp"/>
+                                <exclude reference="N6w-GO-4pB"/>
+                                <exclude reference="aYG-ea-5IJ"/>
+                                <exclude reference="q3P-rO-Jhg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <include reference="t1r-Oh-cyg"/>
+                                <include reference="Cb3-95-orG"/>
+                                <include reference="47F-un-kSy"/>
+                                <include reference="Yhy-uT-E83"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ToH-aZ-PBW"/>
+                                <include reference="ZAx-GD-QaZ"/>
+                                <include reference="iAm-1f-mjp"/>
+                                <include reference="wag-Gr-MAd"/>
+                                <include reference="zmV-NX-rSK"/>
+                                <include reference="3dP-Tr-FuB"/>
+                                <include reference="UII-gd-7aS"/>
+                                <include reference="xxA-HJ-mcz"/>
+                                <include reference="Ggh-1O-V3f"/>
+                                <include reference="JFe-CZ-Sbp"/>
+                                <include reference="N6w-GO-4pB"/>
+                                <include reference="aYG-ea-5IJ"/>
+                                <include reference="q3P-rO-Jhg"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="instructionLabel" destination="Yhy-uT-E83" id="BJg-0U-onZ"/>
+                        <outlet property="scoreLabel" destination="47F-un-kSy" id="xq7-R2-K1M"/>
+                        <outletCollection property="buttons" destination="t1r-Oh-cyg" collectionClass="NSMutableArray" id="F24-Cs-3bf"/>
+                        <outletCollection property="buttons" destination="Cb3-95-orG" collectionClass="NSMutableArray" id="oe9-Si-iNq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
