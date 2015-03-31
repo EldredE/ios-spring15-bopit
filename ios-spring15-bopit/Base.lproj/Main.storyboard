@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -106,11 +107,6 @@
                                 <exclude reference="Yhy-uT-E83"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ToH-aZ-PBW"/>
-                                <exclude reference="ZAx-GD-QaZ"/>
-                                <exclude reference="iAm-1f-mjp"/>
-                                <exclude reference="wag-Gr-MAd"/>
-                                <exclude reference="zmV-NX-rSK"/>
                                 <exclude reference="3dP-Tr-FuB"/>
                                 <exclude reference="UII-gd-7aS"/>
                                 <exclude reference="xxA-HJ-mcz"/>
@@ -119,6 +115,11 @@
                                 <exclude reference="N6w-GO-4pB"/>
                                 <exclude reference="aYG-ea-5IJ"/>
                                 <exclude reference="q3P-rO-Jhg"/>
+                                <exclude reference="ToH-aZ-PBW"/>
+                                <exclude reference="ZAx-GD-QaZ"/>
+                                <exclude reference="iAm-1f-mjp"/>
+                                <exclude reference="wag-Gr-MAd"/>
+                                <exclude reference="zmV-NX-rSK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -129,11 +130,6 @@
                                 <include reference="Yhy-uT-E83"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ToH-aZ-PBW"/>
-                                <include reference="ZAx-GD-QaZ"/>
-                                <include reference="iAm-1f-mjp"/>
-                                <include reference="wag-Gr-MAd"/>
-                                <include reference="zmV-NX-rSK"/>
                                 <include reference="3dP-Tr-FuB"/>
                                 <include reference="UII-gd-7aS"/>
                                 <include reference="xxA-HJ-mcz"/>
@@ -142,6 +138,11 @@
                                 <include reference="N6w-GO-4pB"/>
                                 <include reference="aYG-ea-5IJ"/>
                                 <include reference="q3P-rO-Jhg"/>
+                                <include reference="ToH-aZ-PBW"/>
+                                <include reference="ZAx-GD-QaZ"/>
+                                <include reference="iAm-1f-mjp"/>
+                                <include reference="wag-Gr-MAd"/>
+                                <include reference="zmV-NX-rSK"/>
                             </mask>
                         </variation>
                     </view>
