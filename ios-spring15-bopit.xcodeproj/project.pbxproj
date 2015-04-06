@@ -13,7 +13,8 @@
 		E59D8E641AA8C9CE004AB2D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59D8E631AA8C9CE004AB2D5 /* Images.xcassets */; };
 		E59D8E671AA8C9CE004AB2D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59D8E651AA8C9CE004AB2D5 /* LaunchScreen.xib */; };
 		E59D8E731AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59D8E721AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift */; };
-		FAE3FE651ACB694B00539F1A /* ViewController in Resources */ = {isa = PBXBuildFile; fileRef = FAE3FE641ACB694B00539F1A /* ViewController */; };
+		E5E001481AD202E80053523B /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001471AD202E80053523B /* MainScreenController.swift */; };
+		E5E0014A1AD2061E0053523B /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001491AD2061E0053523B /* HighScoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,8 @@
 		E59D8E6C1AA8C9CE004AB2D5 /* ios-spring15-bopitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-spring15-bopitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59D8E711AA8C9CE004AB2D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E59D8E721AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_spring15_bopitTests.swift; sourceTree = "<group>"; };
-		FAE3FE641ACB694B00539F1A /* ViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ViewController; path = ../Documents/IOS/ViewController; sourceTree = "<group>"; };
+		E5E001471AD202E80053523B /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
+		E5E001491AD2061E0053523B /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,6 @@
 		E59D8E4E1AA8C9CD004AB2D5 = {
 			isa = PBXGroup;
 			children = (
-				FAE3FE641ACB694B00539F1A /* ViewController */,
 				E59D8E591AA8C9CE004AB2D5 /* ios-spring15-bopit */,
 				E59D8E6F1AA8C9CE004AB2D5 /* ios-spring15-bopitTests */,
 				E59D8E581AA8C9CE004AB2D5 /* Products */,
@@ -83,7 +84,9 @@
 				E59D8E5C1AA8C9CE004AB2D5 /* AppDelegate.swift */,
 				E59D8E5E1AA8C9CE004AB2D5 /* ViewController.swift */,
 				E59D8E601AA8C9CE004AB2D5 /* Main.storyboard */,
+				E5E001491AD2061E0053523B /* HighScoresViewController.swift */,
 				E59D8E631AA8C9CE004AB2D5 /* Images.xcassets */,
+				E5E001471AD202E80053523B /* MainScreenController.swift */,
 				E59D8E651AA8C9CE004AB2D5 /* LaunchScreen.xib */,
 				E59D8E5A1AA8C9CE004AB2D5 /* Supporting Files */,
 			);
@@ -196,7 +199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59D8E621AA8C9CE004AB2D5 /* Main.storyboard in Resources */,
-				FAE3FE651ACB694B00539F1A /* ViewController in Resources */,
 				E59D8E671AA8C9CE004AB2D5 /* LaunchScreen.xib in Resources */,
 				E59D8E641AA8C9CE004AB2D5 /* Images.xcassets in Resources */,
 			);
@@ -218,6 +220,8 @@
 			files = (
 				E59D8E5F1AA8C9CE004AB2D5 /* ViewController.swift in Sources */,
 				E59D8E5D1AA8C9CE004AB2D5 /* AppDelegate.swift in Sources */,
+				E5E001481AD202E80053523B /* MainScreenController.swift in Sources */,
+				E5E0014A1AD2061E0053523B /* HighScoresViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
