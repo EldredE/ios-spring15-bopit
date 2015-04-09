@@ -15,6 +15,7 @@
 		E59D8E731AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59D8E721AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift */; };
 		E5E001481AD202E80053523B /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001471AD202E80053523B /* MainScreenController.swift */; };
 		E5E0014A1AD2061E0053523B /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001491AD2061E0053523B /* HighScoresViewController.swift */; };
+		FA32FAA81AD61ECD00B77624 /* gameClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32FAA71AD61ECD00B77624 /* gameClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E59D8E721AA8C9CE004AB2D5 /* ios_spring15_bopitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_spring15_bopitTests.swift; sourceTree = "<group>"; };
 		E5E001471AD202E80053523B /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		E5E001491AD2061E0053523B /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
+		FA32FAA71AD61ECD00B77624 /* gameClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				E59D8E5C1AA8C9CE004AB2D5 /* AppDelegate.swift */,
 				E59D8E5E1AA8C9CE004AB2D5 /* ViewController.swift */,
+				FA32FAA71AD61ECD00B77624 /* gameClass.swift */,
 				E59D8E601AA8C9CE004AB2D5 /* Main.storyboard */,
 				E5E001491AD2061E0053523B /* HighScoresViewController.swift */,
 				E59D8E631AA8C9CE004AB2D5 /* Images.xcassets */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59D8E5F1AA8C9CE004AB2D5 /* ViewController.swift in Sources */,
+				FA32FAA81AD61ECD00B77624 /* gameClass.swift in Sources */,
 				E59D8E5D1AA8C9CE004AB2D5 /* AppDelegate.swift in Sources */,
 				E5E001481AD202E80053523B /* MainScreenController.swift in Sources */,
 				E5E0014A1AD2061E0053523B /* HighScoresViewController.swift in Sources */,
