@@ -16,26 +16,33 @@ class gameClass{
     private let buttons: [UIButton]!
     private var instructionLabel: UILabel!
     private var scoreLabel: UILabel!
+    private let pauseLabel: UILabel!
     private let gameOverButtons: [UIButton]!
     private let directions: [String]
     private var rand: Int
-    
+    private var swipeRand: Int
+    private var buttonRand: Int
+    private var swipeGestures: [UISwipeGestureRecognizer]!
     
     var score : Int = 0
-    init (buttons: [UIButton], instructionLabel: UILabel, scoreLabel: UILabel, gameOverButtons: [UIButton]) {
-        directions = ["Blue", "Red"]
-        rand = Int(arc4random_uniform(2))
+    init (buttons: [UIButton], instructionLabel: UILabel, scoreLabel: UILabel, gameOverButtons: [UIButton], pauseLabel: UILabel, swipeGestures: [UISwipeGestureRecognizer]) {
+        directions = ["Blue", "Red","Left", "Right", "Up", "Down"]
+        rand = Int(arc4random_uniform(6))
+        buttonRand = Int(arc4random_uniform(2))
+        swipeRand = Int(arc4random_uniform(4))
         isPaused = false
         self.buttons = buttons
         self.instructionLabel = instructionLabel
         self.scoreLabel = scoreLabel
         self.gameOverButtons = gameOverButtons
-    
+        self.pauseLabel = pauseLabel
+        self.swipeGestures = swipeGestures
     }
 
     func startNewGame() {
         instructionLabel.text = "Press " + directions[rand]
         score = 0;
+        pauseLabel.hidden = true
         enableActions()
         hideGameOver()
         updateScore()
@@ -43,9 +50,8 @@ class gameClass{
     
     func checkActions(action: String){
         if directions[rand] == action{
-            rand = Int(arc4random_uniform(2))
+            rand = Int(arc4random_uniform(6))
             instructionLabel.text = "Press " + directions[rand]
-            
             score++
             updateScore()
         }
@@ -62,9 +68,11 @@ class gameClass{
         if (isPaused) {
             enableActions()
             isPaused = false
+            pauseLabel.hidden = true
         }
         else {
             disableActions()
+            pauseLabel.hidden = false
             isPaused = true
         }
     }

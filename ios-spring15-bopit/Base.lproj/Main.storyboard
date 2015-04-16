@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="width" constant="171" id="Ef7-gz-Jg2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -123,11 +123,17 @@
                         <constraints>
                             <constraint firstItem="KMz-6U-Dha" firstAttribute="leading" secondItem="xSo-2s-bbE" secondAttribute="leading" id="Clj-4H-HvF"/>
                             <constraint firstItem="KMz-6U-Dha" firstAttribute="leading" secondItem="q33-CC-98A" secondAttribute="leading" id="Coa-zM-p5c"/>
-                            <constraint firstItem="goH-LC-4mj" firstAttribute="top" secondItem="q33-CC-98A" secondAttribute="bottom" constant="29" id="Pp3-9s-A8U"/>
+                            <constraint firstItem="goH-LC-4mj" firstAttribute="top" secondItem="q33-CC-98A" secondAttribute="bottom" constant="29" id="Pp3-9s-A8U">
+                                <variation key="heightClass=compact" constant="59"/>
+                            </constraint>
                             <constraint firstItem="Yic-Vu-MA1" firstAttribute="centerX" secondItem="bPh-Jk-jhp" secondAttribute="centerX" id="Q7B-f7-A3m"/>
-                            <constraint firstItem="IQx-OB-649" firstAttribute="top" secondItem="Yic-Vu-MA1" secondAttribute="bottom" constant="77" id="RPc-fy-U0V"/>
+                            <constraint firstItem="IQx-OB-649" firstAttribute="top" secondItem="Yic-Vu-MA1" secondAttribute="bottom" constant="77" id="RPc-fy-U0V">
+                                <variation key="heightClass=compact" constant="47"/>
+                            </constraint>
                             <constraint firstItem="xSo-2s-bbE" firstAttribute="top" secondItem="IQx-OB-649" secondAttribute="bottom" constant="8" symbolic="YES" id="WQo-fm-Ljn"/>
-                            <constraint firstItem="IQx-OB-649" firstAttribute="centerY" secondItem="bPh-Jk-jhp" secondAttribute="centerY" id="YyB-ZL-yA8"/>
+                            <constraint firstItem="IQx-OB-649" firstAttribute="centerY" secondItem="bPh-Jk-jhp" secondAttribute="centerY" id="YyB-ZL-yA8">
+                                <variation key="heightClass=compact" constant="-30"/>
+                            </constraint>
                             <constraint firstItem="q33-CC-98A" firstAttribute="top" secondItem="KMz-6U-Dha" secondAttribute="bottom" constant="8" symbolic="YES" id="ZaH-K3-wFS"/>
                             <constraint firstItem="IQx-OB-649" firstAttribute="trailing" secondItem="xSo-2s-bbE" secondAttribute="trailing" id="cVj-7x-3XS"/>
                             <constraint firstItem="xSo-2s-bbE" firstAttribute="trailing" secondItem="KMz-6U-Dha" secondAttribute="trailing" id="gBS-NV-zoh"/>
@@ -193,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jn2-rp-4Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="298.5"/>
+            <point key="canvasLocation" x="-227" y="298.5"/>
         </scene>
         <!--High Scores View Controller-->
         <scene sceneID="Jqj-xa-gku">
@@ -247,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4PM-O6-UYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="1089"/>
+            <point key="canvasLocation" x="-227" y="1108.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -390,6 +396,12 @@
                                     <action selector="playAgainPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uq7-NO-KTe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Paused" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXt-MT-XyX">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -405,6 +417,7 @@
                             <constraint firstItem="M82-UT-SFH" firstAttribute="baseline" secondItem="jSx-Na-GE7" secondAttribute="baseline" id="HCG-3M-mgc"/>
                             <constraint firstItem="pcj-eh-9M2" firstAttribute="centerX" secondItem="Rqt-zS-p73" secondAttribute="centerX" id="JO7-B3-ZFu"/>
                             <constraint firstItem="jSx-Na-GE7" firstAttribute="leading" secondItem="M82-UT-SFH" secondAttribute="leading" id="KUb-Ka-3gh"/>
+                            <constraint firstItem="Rqt-zS-p73" firstAttribute="top" secondItem="hXt-MT-XyX" secondAttribute="bottom" constant="8" symbolic="YES" id="KhZ-g9-Bca"/>
                             <constraint firstItem="x9Q-12-Rba" firstAttribute="firstBaseline" secondItem="Rqt-zS-p73" secondAttribute="firstBaseline" id="MsP-d2-WWm"/>
                             <constraint firstItem="6fu-de-89s" firstAttribute="trailing" secondItem="z6z-MU-NER" secondAttribute="trailing" id="Neb-xp-dYh"/>
                             <constraint firstItem="JZZ-7D-D39" firstAttribute="baseline" secondItem="6fu-de-89s" secondAttribute="baseline" id="OiM-pG-8Qa"/>
@@ -418,6 +431,7 @@
                             <constraint firstItem="JZZ-7D-D39" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="ffV-hv-nvX"/>
                             <constraint firstItem="JZZ-7D-D39" firstAttribute="bottom" secondItem="6fu-de-89s" secondAttribute="bottom" id="gdR-C7-nqO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="x9Q-12-Rba" secondAttribute="bottom" constant="141" id="jsQ-cW-iHZ"/>
+                            <constraint firstItem="hXt-MT-XyX" firstAttribute="centerX" secondItem="x9Q-12-Rba" secondAttribute="centerX" id="qsG-sr-Nng"/>
                             <constraint firstItem="Rqt-zS-p73" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qu7-c8-9zW"/>
                             <constraint firstItem="jSx-Na-GE7" firstAttribute="top" secondItem="z6z-MU-NER" secondAttribute="top" id="sCz-43-Z1b"/>
                             <constraint firstItem="r3L-dD-v1c" firstAttribute="top" secondItem="pcj-eh-9M2" secondAttribute="bottom" constant="8" symbolic="YES" id="urd-48-pat"/>
@@ -434,12 +448,15 @@
                                 <exclude reference="M82-UT-SFH"/>
                                 <exclude reference="r3L-dD-v1c"/>
                                 <exclude reference="pcj-eh-9M2"/>
+                                <exclude reference="hXt-MT-XyX"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="jsQ-cW-iHZ"/>
                                 <exclude reference="7hq-sN-lDX"/>
+                                <exclude reference="KhZ-g9-Bca"/>
                                 <exclude reference="d3a-37-oJc"/>
                                 <exclude reference="qu7-c8-9zW"/>
+                                <exclude reference="qsG-sr-Nng"/>
                                 <exclude reference="5tG-Di-5Dt"/>
                                 <exclude reference="E60-a8-Hca"/>
                                 <exclude reference="MsP-d2-WWm"/>
@@ -478,12 +495,15 @@
                                 <include reference="M82-UT-SFH"/>
                                 <include reference="r3L-dD-v1c"/>
                                 <include reference="pcj-eh-9M2"/>
+                                <include reference="hXt-MT-XyX"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="jsQ-cW-iHZ"/>
                                 <include reference="7hq-sN-lDX"/>
+                                <include reference="KhZ-g9-Bca"/>
                                 <include reference="d3a-37-oJc"/>
                                 <include reference="qu7-c8-9zW"/>
+                                <include reference="qsG-sr-Nng"/>
                                 <include reference="5tG-Di-5Dt"/>
                                 <include reference="E60-a8-Hca"/>
                                 <include reference="MsP-d2-WWm"/>
@@ -514,6 +534,8 @@
                     </view>
                     <connections>
                         <outlet property="instructionLabel" destination="Rqt-zS-p73" id="Vrl-Km-tAI"/>
+                        <outlet property="pauseLabel" destination="hXt-MT-XyX" id="5RK-LV-mZD"/>
+                        <outlet property="redButton" destination="6fu-de-89s" id="agh-AA-wUK"/>
                         <outlet property="scoreLabel" destination="z6z-MU-NER" id="Wgg-ar-D2O"/>
                         <outletCollection property="buttons" destination="JZZ-7D-D39" collectionClass="NSMutableArray" id="vu0-EJ-wOf"/>
                         <outletCollection property="buttons" destination="6fu-de-89s" collectionClass="NSMutableArray" id="yqe-xS-Krq"/>
@@ -523,10 +545,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="298.5"/>
+            <point key="canvasLocation" x="517" y="298.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0UE-6Y-7qf"/>
+        <segue reference="7zZ-P8-s3H"/>
     </inferredMetricsTieBreakers>
 </document>
