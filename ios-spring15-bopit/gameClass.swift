@@ -24,6 +24,7 @@ class gameClass{
     private var buttonRand: Int
     private var swipeGestures: [UISwipeGestureRecognizer]!
     
+    
     var score : Int = 0
     init (buttons: [UIButton], instructionLabel: UILabel, scoreLabel: UILabel, gameOverButtons: [UIButton], pauseLabel: UILabel, swipeGestures: [UISwipeGestureRecognizer]) {
         directions = ["Blue", "Red","Left", "Right", "Up", "Down"]
@@ -40,7 +41,7 @@ class gameClass{
     }
 
     func startNewGame() {
-        instructionLabel.text = "Press " + directions[rand]
+        instructionLabel.text = directions[rand]
         score = 0;
         pauseLabel.hidden = true
         enableActions()
@@ -51,7 +52,7 @@ class gameClass{
     func checkActions(action: String){
         if directions[rand] == action{
             rand = Int(arc4random_uniform(6))
-            instructionLabel.text = "Press " + directions[rand]
+            instructionLabel.text = directions[rand]
             score++
             updateScore()
         }
@@ -72,6 +73,7 @@ class gameClass{
         }
         else {
             disableActions()
+            
             pauseLabel.hidden = false
             isPaused = true
         }
@@ -81,11 +83,17 @@ class gameClass{
         for x in 0...buttons.count - 1 {
             buttons[x].enabled = true
         }
+        for n in 0...swipeGestures.count - 1 {
+            swipeGestures[n].enabled = true
+        }
     }
     
     func disableActions() {
         for x in 0...buttons.count - 1 {
             buttons[x].enabled = false
+        }
+        for n in 0...swipeGestures.count - 1 {
+            swipeGestures[n].enabled = false
         }
     }
     
@@ -103,6 +111,7 @@ class gameClass{
     
     func gameOver (){
         disableActions()
+        rand = Int(arc4random_uniform(6))
         instructionLabel.text = "GAME OVER"
         showGameOver()
     }

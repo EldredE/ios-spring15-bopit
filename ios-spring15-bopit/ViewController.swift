@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     var game : gameClass!
+    var audioPlayer = AVAudioPlayer()
+    
+    var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("buttonPressed", ofType: "mp3")!)
+    var swipeSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swiped", ofType: "wav")!)
     
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var gameOverButtons: [UIButton]!
@@ -28,11 +33,19 @@ class ViewController: UIViewController {
     @IBAction func pausePressed(sender: AnyObject) {
         
         game.pauseActions()
+
         print("Paused Pressed")
     }
     
     @IBAction func redButtonPressed(sender: UIButton) {
         game.checkActions("Red")
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
+        var error:NSError?
+        audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: &error)
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
         println("Red Pressed")
         
     }
@@ -40,6 +53,13 @@ class ViewController: UIViewController {
     @IBAction func blueButtonPressed(sender: UIButton) {
         
         game.checkActions("Blue")
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
+        var error:NSError?
+        audioPlayer = AVAudioPlayer(contentsOfURL: alertSound, error: &error)
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
         println("Blue Pressed")
     }
     
@@ -48,24 +68,33 @@ class ViewController: UIViewController {
         if (sender.direction == .Left) {
             game.checkActions("Left")
         }
-        
+
         if (sender.direction == .Right) {
-            game.checkActions("Right")        }
+            game.checkActions("Right")
+        }
         
         if (sender.direction == .Up) {
             game.checkActions("Up")
         }
         
         if (sender.direction == .Down) {
-            game.checkActions("Down")        }
+            game.checkActions("Down")
+        }
         
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
+        var error:NSError?
+        audioPlayer = AVAudioPlayer(contentsOfURL: swipeSound, error: &error)
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Added gestures (Swipes)
         var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -76,21 +105,16 @@ class ViewController: UIViewController {
         upSwipe.direction = .Up
         downSwipe.direction = .Down
         
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
 
-        //swipeGestures.append(leftSwipe)
-        //swipeGestures.append(rightSwipe)
-        //swipeGestures.append(upSwipe)
         swipeGestures = [leftSwipe, rightSwipe, upSwipe, downSwipe]
         
         // Do any additional setup after loading the view, typically from a nib.
         game = gameClass(buttons: buttons, instructionLabel: instructionLabel, scoreLabel: scoreLabel, gameOverButtons: gameOverButtons, pauseLabel: pauseLabel, swipeGestures: swipeGestures)
         game.startNewGame()
-        
         
     }
     

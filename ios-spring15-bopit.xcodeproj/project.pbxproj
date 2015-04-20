@@ -16,6 +16,8 @@
 		E5E001481AD202E80053523B /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001471AD202E80053523B /* MainScreenController.swift */; };
 		E5E0014A1AD2061E0053523B /* HighScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E001491AD2061E0053523B /* HighScoresViewController.swift */; };
 		FA32FAA81AD61ECD00B77624 /* gameClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32FAA71AD61ECD00B77624 /* gameClass.swift */; };
+		FAEB923C1AE4988600953B85 /* buttonPressed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FAEB923B1AE4988600953B85 /* buttonPressed.mp3 */; };
+		FAEB923E1AE49B0300953B85 /* swiped.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEB923D1AE49B0300953B85 /* swiped.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		E5E001471AD202E80053523B /* MainScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		E5E001491AD2061E0053523B /* HighScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoresViewController.swift; sourceTree = "<group>"; };
 		FA32FAA71AD61ECD00B77624 /* gameClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameClass.swift; sourceTree = "<group>"; };
+		FAEB923B1AE4988600953B85 /* buttonPressed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonPressed.mp3; sourceTree = "<group>"; };
+		FAEB923D1AE49B0300953B85 /* swiped.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = swiped.wav; path = ../../Downloads/swiped.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		E59D8E5A1AA8C9CE004AB2D5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAEB923D1AE49B0300953B85 /* swiped.wav */,
+				FAEB923B1AE4988600953B85 /* buttonPressed.mp3 */,
 				E59D8E5B1AA8C9CE004AB2D5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -201,7 +207,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEB923E1AE49B0300953B85 /* swiped.wav in Resources */,
 				E59D8E621AA8C9CE004AB2D5 /* Main.storyboard in Resources */,
+				FAEB923C1AE4988600953B85 /* buttonPressed.mp3 in Resources */,
 				E59D8E671AA8C9CE004AB2D5 /* LaunchScreen.xib in Resources */,
 				E59D8E641AA8C9CE004AB2D5 /* Images.xcassets in Resources */,
 			);
