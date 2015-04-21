@@ -17,16 +17,22 @@ class gameClass{
     private var instructionLabel: UILabel!
     private var scoreLabel: UILabel!
     private let pauseLabel: UILabel!
+    private let timerLabel: UILabel!
     private let gameOverButtons: [UIButton]!
     private let directions: [String]
     private var rand: Int
     private var swipeRand: Int
     private var buttonRand: Int
-    private var swipeGestures: [UISwipeGestureRecognizer]!
-    
+    private var swipeGestures: [UISwipeGestureRecognizer]!    
     
     var score : Int = 0
-    init (buttons: [UIButton], instructionLabel: UILabel, scoreLabel: UILabel, gameOverButtons: [UIButton], pauseLabel: UILabel, swipeGestures: [UISwipeGestureRecognizer]) {
+    
+    var timer : NSTimer = NSTimer()
+    var maxTime : Int = 5
+    var currentTime : Int = 5
+    
+    
+    init (buttons: [UIButton], instructionLabel: UILabel, scoreLabel: UILabel, timerLabel: UILabel, gameOverButtons: [UIButton], pauseLabel: UILabel, swipeGestures: [UISwipeGestureRecognizer]) {
         directions = ["Blue", "Red","Left", "Right", "Up", "Down"]
         rand = Int(arc4random_uniform(6))
         buttonRand = Int(arc4random_uniform(2))
@@ -38,6 +44,7 @@ class gameClass{
         self.gameOverButtons = gameOverButtons
         self.pauseLabel = pauseLabel
         self.swipeGestures = swipeGestures
+        self.timerLabel = timerLabel
     }
 
     func startNewGame() {
@@ -49,17 +56,20 @@ class gameClass{
         updateScore()
     }
     
-    func checkActions(action: String){
-        if directions[rand] == action{
+    func checkActions(action: String) -> Bool{
+        if (directions[rand] == action){
             rand = Int(arc4random_uniform(6))
             instructionLabel.text = directions[rand]
             score++
             updateScore()
+            return true
         }
         else {
             gameOver()
+            return false
         }
     }
+
     
     func updateScore() {
         scoreLabel.text = "Score: " + String(score)
@@ -98,6 +108,7 @@ class gameClass{
     }
     
     func showGameOver(){
+        timer.invalidate()
         for i in 0...gameOverButtons.count - 1{
             gameOverButtons[i].hidden = false
         }
@@ -111,6 +122,7 @@ class gameClass{
     
     func gameOver (){
         disableActions()
+        timer.invalidate()
         rand = Int(arc4random_uniform(6))
         instructionLabel.text = "GAME OVER"
         showGameOver()

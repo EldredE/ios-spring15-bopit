@@ -16,20 +16,26 @@ class ViewController: UIViewController {
     var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("buttonPressed", ofType: "mp3")!)
     var swipeSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swiped", ofType: "wav")!)
     
+    //Timer Variables
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
+    var gameTime: Double = 6
+    
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var gameOverButtons: [UIButton]!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var pauseLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var swipeGestures: [UISwipeGestureRecognizer]!
-    
     
     @IBAction func playAgainPressed(sender: UIButton) {
         game.startNewGame()
         
     }
+    
     @IBAction func pausePressed(sender: AnyObject) {
         
         game.pauseActions()
@@ -37,8 +43,12 @@ class ViewController: UIViewController {
         print("Paused Pressed")
     }
     
+    //going to reimplement timer just to make it work for now
     @IBAction func redButtonPressed(sender: UIButton) {
-        game.checkActions("Red")
+        if(game.checkActions("Red")){
+            restartTimer()
+        }
+        
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
         AVAudioSession.sharedInstance().setActive(true, error: nil)
         
@@ -50,9 +60,13 @@ class ViewController: UIViewController {
         
     }
     
+    //going to reimplement timer just to make it work
     @IBAction func blueButtonPressed(sender: UIButton) {
         
-        game.checkActions("Blue")
+        if (game.checkActions("Blue")){
+            restartTimer()
+        }
+        
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
         AVAudioSession.sharedInstance().setActive(true, error: nil)
         
@@ -64,21 +78,30 @@ class ViewController: UIViewController {
     }
     
     
+    //Going to reimplement later Just to make it work.
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if (sender.direction == .Left) {
-            game.checkActions("Left")
+            if(game.checkActions("Left")){
+                restartTimer()
+            }
         }
 
         if (sender.direction == .Right) {
-            game.checkActions("Right")
+            if(game.checkActions("Right")){
+                restartTimer()
+            }
         }
         
         if (sender.direction == .Up) {
-            game.checkActions("Up")
+            if(game.checkActions("Up")){
+                restartTimer()
+            }
         }
         
         if (sender.direction == .Down) {
-            game.checkActions("Down")
+            if(game.checkActions("Down")){
+                restartTimer()
+            }
         }
         
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
@@ -90,7 +113,28 @@ class ViewController: UIViewController {
         audioPlayer.play()
 
     }
-
+    
+    //Timer functions
+    func restartTimer(){
+        let aSelector : Selector = "updateCounter"
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate()
+    }
+    
+    func updateCounter(){
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime = currentTime - startTime
+        var seconds = gameTime - elapsedTime
+        if(seconds > 0){
+            elapsedTime -= NSTimeInterval(seconds)
+            timerLabel.text = String(NSInteger(seconds))
+        }
+        else{
+            timer.invalidate()
+            game.gameOver()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +143,8 @@ class ViewController: UIViewController {
         var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        timerLabel.text = String(NSInteger(startTime))
         
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right
@@ -113,9 +159,10 @@ class ViewController: UIViewController {
         swipeGestures = [leftSwipe, rightSwipe, upSwipe, downSwipe]
         
         // Do any additional setup after loading the view, typically from a nib.
-        game = gameClass(buttons: buttons, instructionLabel: instructionLabel, scoreLabel: scoreLabel, gameOverButtons: gameOverButtons, pauseLabel: pauseLabel, swipeGestures: swipeGestures)
+        game = gameClass(buttons: buttons, instructionLabel: instructionLabel, scoreLabel: scoreLabel,
+            timerLabel: timerLabel, gameOverButtons: gameOverButtons, pauseLabel: pauseLabel, swipeGestures: swipeGestures)
         game.startNewGame()
-        
+        restartTimer()
     }
     
     override func didReceiveMemoryWarning() {
