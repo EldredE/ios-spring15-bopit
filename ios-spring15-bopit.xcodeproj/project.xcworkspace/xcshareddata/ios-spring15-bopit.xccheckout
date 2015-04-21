@@ -12,6 +12,8 @@
 	<dict>
 		<key>9F747CC0AAE71FC6A8C54E30ADE708A47BB09D4A</key>
 		<string>https://github.com/EthanEldred/ios-spring15-bopit.git</string>
+		<key>C3495D6B25AA09DC213074D120AF4FDCCC2530B3</key>
+		<string>https://github.com/EthanEldred/ios-spring15-bopit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ios-spring15-bopit.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>9F747CC0AAE71FC6A8C54E30ADE708A47BB09D4A</key>
 		<string>../..</string>
+		<key>C3495D6B25AA09DC213074D120AF4FDCCC2530B3</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/EthanEldred/ios-spring15-bopit.git</string>
@@ -28,6 +32,14 @@
 	<string>9F747CC0AAE71FC6A8C54E30ADE708A47BB09D4A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C3495D6B25AA09DC213074D120AF4FDCCC2530B3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
