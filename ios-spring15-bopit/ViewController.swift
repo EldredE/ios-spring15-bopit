@@ -12,16 +12,28 @@ import AVFoundation
 class ViewController: UIViewController {
     var game : gameClass!
     var audioPlayer = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
     
     var alertSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("buttonPressed", ofType: "mp3")!)
     var swipeSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swiped", ofType: "wav")!)
+    
+    var gameMusic = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("DST-Azimuth", ofType: "mp3")!)
     
     //Timer Variables
     let aSelector : Selector = "updateCounter"
     var startTime = NSTimeInterval()
     var timer = NSTimer()
+
     var restartGameTime : Double = 7
     var gameTime: Double = 7
+
+    var gameTime: Double = 6
+    var rate: Float = 1.0
+=======
+    var restartGameTime : Double = 7
+    var gameTime: Double = 7
+>>>>>>> origin/master
+>>>>>>> Stashed changes
     
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var gameOverButtons: [UIButton]!
@@ -43,9 +55,21 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pausePressed(sender: AnyObject) {
+<<<<<<< Updated upstream
             game.pauseActions()
             print("Paused Game")
             timer.invalidate()
+=======
+<<<<<<< HEAD
+        
+        game.pauseActions()
+        print("Paused Pressed")
+=======
+            game.pauseActions()
+            print("Paused Game")
+            timer.invalidate()
+>>>>>>> origin/master
+>>>>>>> Stashed changes
     }
     
     //going to reimplement timer just to make it work for now
@@ -62,7 +86,7 @@ class ViewController: UIViewController {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
         println("Red Pressed")
-        
+        audioPlayer2.rate = rate + 0.2
     }
     
     //going to reimplement timer just to make it work
@@ -80,7 +104,7 @@ class ViewController: UIViewController {
         audioPlayer.prepareToPlay()
         audioPlayer.play()
         println("Blue Pressed")
-    }
+        }
     
     
     //Going to reimplement later Just to make it work.
@@ -142,6 +166,16 @@ class ViewController: UIViewController {
         var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        
+        var error:NSError?
+        audioPlayer2 = AVAudioPlayer(contentsOfURL: gameMusic, error: &error)
+        audioPlayer2.enableRate = true
+        audioPlayer2.prepareToPlay()
+        audioPlayer2.play()
         
         timerLabel.text = String(NSInteger(startTime))
         
