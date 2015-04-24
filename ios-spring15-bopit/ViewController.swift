@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     var swipeSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("swiped", ofType: "wav")!)
     
     //Timer Variables
+    let aSelector : Selector = "updateCounter"
     var startTime = NSTimeInterval()
     var timer = NSTimer()
-    var gameTime: Double = 6
+    var restartGameTime : Double = 7
+    var gameTime: Double = 7
     
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var gameOverButtons: [UIButton]!
@@ -31,16 +33,19 @@ class ViewController: UIViewController {
     
     var swipeGestures: [UISwipeGestureRecognizer]!
     
+    var swipeGestureStrings: [String]!
+    
     @IBAction func playAgainPressed(sender: UIButton) {
         game.startNewGame()
+        gameTime = restartGameTime
+        restartTimer()
         
     }
     
     @IBAction func pausePressed(sender: AnyObject) {
-        
-        game.pauseActions()
-
-        print("Paused Pressed")
+            game.pauseActions()
+            print("Paused Game")
+            timer.invalidate()
     }
     
     //going to reimplement timer just to make it work for now
@@ -80,27 +85,15 @@ class ViewController: UIViewController {
     
     //Going to reimplement later Just to make it work.
     func handleSwipes(sender:UISwipeGestureRecognizer) {
-        if (sender.direction == .Left) {
-            if(game.checkActions("Left")){
-                restartTimer()
-            }
-        }
-
-        if (sender.direction == .Right) {
-            if(game.checkActions("Right")){
-                restartTimer()
-            }
-        }
         
-        if (sender.direction == .Up) {
-            if(game.checkActions("Up")){
-                restartTimer()
-            }
-        }
-        
-        if (sender.direction == .Down) {
-            if(game.checkActions("Down")){
-                restartTimer()
+        for i in 0...3{
+            if(sender.direction == swipeGestures[i].direction){
+                if game.checkActions(swipeGestureStrings[i]){
+                    restartTimer()
+                }
+                else{
+                    timer.invalidate()
+                }
             }
         }
         
@@ -116,9 +109,15 @@ class ViewController: UIViewController {
     
     //Timer functions
     func restartTimer(){
-        let aSelector : Selector = "updateCounter"
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: aSelector, userInfo: nil, repeats: true)
-        startTime = NSDate.timeIntervalSinceReferenceDate()
+
+        if ((game.score%10 == 0) && (gameTime > 1)){
+            gameTime--
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+        }
+        else{
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+        }
     }
     
     func updateCounter(){
@@ -130,8 +129,8 @@ class ViewController: UIViewController {
             timerLabel.text = String(NSInteger(seconds))
         }
         else{
-            timer.invalidate()
             game.gameOver()
+            timer.invalidate()
         }
     }
     
@@ -157,6 +156,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(downSwipe)
 
         swipeGestures = [leftSwipe, rightSwipe, upSwipe, downSwipe]
+        swipeGestureStrings = ["Left", "Right", "Up", "Down"]
         
         // Do any additional setup after loading the view, typically from a nib.
         game = gameClass(buttons: buttons, instructionLabel: instructionLabel, scoreLabel: scoreLabel,

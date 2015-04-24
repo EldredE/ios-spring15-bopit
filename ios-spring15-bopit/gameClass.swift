@@ -12,7 +12,6 @@ import UIKit
 
 class gameClass{
 
-    private var isPaused: Bool
     private let buttons: [UIButton]!
     private var instructionLabel: UILabel!
     private var scoreLabel: UILabel!
@@ -26,6 +25,8 @@ class gameClass{
     private var swipeGestures: [UISwipeGestureRecognizer]!    
     
     var score : Int = 0
+    
+    var isPaused: Bool
     
     var timer : NSTimer = NSTimer()
     var maxTime : Int = 5
@@ -83,7 +84,6 @@ class gameClass{
         }
         else {
             disableActions()
-            
             pauseLabel.hidden = false
             isPaused = true
         }
